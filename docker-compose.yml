@@ -6,8 +6,16 @@ services:
       dockerfile: ./Dockerfile
     depends_on:
       - selenium
+        condition: service_healthy
+    links: 
+      - selenium
     command: 'python /app/start.py'
   selenium:
     container_name: selenium
     image: selenium/standalone-chrome
     shm_size: 128M
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:4444"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
