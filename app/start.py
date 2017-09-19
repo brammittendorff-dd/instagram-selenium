@@ -9,7 +9,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 
 driver = webdriver.Remote(
-    command_executor='http://172.20.0.2:4444/wd/hub', desired_capabilities=DesiredCapabilities.CHROME
+    command_executor=settings.SELENIUM_HUB, desired_capabilities=DesiredCapabilities.CHROME
 )
 
 driver.get(settings.URL + "accounts/login/")
