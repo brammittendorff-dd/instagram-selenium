@@ -2,11 +2,13 @@
 
 ## Installation
 
-Fill in your credentials in the settings.py:
+Create a file called `app/settings.py`. 
+
+Fill in your credentials like below in the `app/settings.py`:
 
 ```
-USERNAME = ''
-PASSWORD = ''
+USERNAME = 'username'
+PASSWORD = 'password'
 URL = 'https://www.instagram.com/'
 ```
 
