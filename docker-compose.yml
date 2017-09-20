@@ -1,19 +1,11 @@
-version: '2.1'
+version: '3'
 services:
   web:
-    build:
-      context: .
-      dockerfile: ./Dockerfile
+    build: .
     depends_on:
-      selenium:
-          condition: service_healthy
-    command: 'python /app/start.py'
+      - 'selenium'
+    command: ['/app/wait-for-selenium.sh', 'http://selenium:4444/wd/hub', '--', 'python', '/app/start.py']
   selenium:
     container_name: selenium
     image: selenium/standalone-chrome
     shm_size: 128M
-    healthcheck:
-      test: ["CMD", "wget", "-O-", "http://selenium:4444/wd/hub"]
-      interval: 1s
-      timeout: 15s
-      retries: 15
