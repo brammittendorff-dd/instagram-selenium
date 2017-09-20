@@ -2,15 +2,16 @@
 
 ## Installation
 
-Create a file called `app/settings.py`. 
+Create a file called `.env`. 
 
-Fill in your credentials like below in the `app/settings.py`:
+Fill in your credentials like below in the `.env`:
 
 ```
-USERNAME = 'username'
-PASSWORD = 'password'
-URL = 'https://www.instagram.com/'
-SELENIUM_HUB = 'http://selenium:4444/wd/hub'
+HOSTNAME=seleniumcontainer
+USERNAME=username
+PASSWORD=password
+URL_INSTAGRAM=https://www.instagram.com/
+URL_SELENIUM_HUB=http://seleniumcontainer:4444/wd/hub
 ```
 
 And run docker compose:

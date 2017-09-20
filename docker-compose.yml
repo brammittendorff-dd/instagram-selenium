@@ -4,8 +4,10 @@ services:
     build: .
     depends_on:
       - 'selenium'
-    command: ['/app/wait-for-selenium.sh', 'http://selenium:4444/wd/hub', '--', 'python', '/app/start.py']
+    command: ['/app/wait-for-selenium.sh', '${URL_SELENIUM_HUB}', '--', 'python', '/app/start.py']
+    env_file:
+      - .env
   selenium:
-    container_name: selenium
+    container_name: ${HOSTNAME}
     image: selenium/standalone-chrome
     shm_size: 128M
