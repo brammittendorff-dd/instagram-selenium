@@ -8,9 +8,9 @@ shift
 cmd="$@"
 
 until wget -O- "$url"; do
-  >&2 echo "Postgres is unavailable - sleeping"
+  >&2 echo "Selenium is unavailable - sleeping"
   sleep 1
 done
 
->&2 echo "Postgres is up - executing command"
+>&2 echo "Selenium is up - executing command"
 exec $cmd
